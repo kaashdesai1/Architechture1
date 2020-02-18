@@ -52,5 +52,10 @@ int main(int argc, const char *argv[])
     free(controller->waiting_queue);
     free(controller->pending_queue);
     free(controller);
+    
+    float latency=access_lateny(cycles,NUM_OF_BANKS);
+    uint64_t conflicts=number_of_conflict();
     printf("End Execution Time: ""%"PRIu64"\n", cycles);
+    printf("Number of Conflicts: ""%"PRIu64"\n", conflicts);
+    printf("Average Latency: %.3f\n", latency / num_requests);
 }
